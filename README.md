@@ -4,152 +4,64 @@ Proyecto Prueba Tecnica ManpowerGroup Desarrollador Laravel
 =======
 # Sistema de Tickets
 
-Proyecto Laravel para administrar tickets de soporte con creación, listado y filtros.
+Proyecto Laravel para administrar tickets de soporte con API REST y frontend Vue.
 
-## Contenido del proyecto
-
-- API REST con endpoints para:
-  - crear tickets
-  - listar tickets
-  - obtener clientes
-- Frontend Vue integrado en Blade: `resources/views/tickets.blade.php`
-- Migraciones Laravel para MySQL
-- Seeders para datos iniciales de clientes y tickets
-- Pruebas backend para validación, creación y filtrado
-
-## Requisitos para desplegar en localhost
-
+## Requisitos
 - PHP 8.3+
 - MySQL
 - Composer
-- Servidor web o `php artisan serve`
+- Node.js (opcional para assets)
 
-## Configuración del entorno
+## Instalación
 
-1. Copia el archivo de entorno:
-   ```bash
-   cp .env.example .env
-   ```
+1. Clona el repositorio y entra al directorio.
 
-2. Configura la conexión MySQL en `.env`:
-   ```env
-   DB_CONNECTION=mysql
-   DB_HOST=127.0.0.1
-   DB_PORT=3306
-   DB_DATABASE=nombre_base_datos
-   DB_USERNAME=usuario
-   DB_PASSWORD=contraseña
-   ```
-
-3. Genera la clave de la aplicación:
-   ```bash
-   php artisan key:generate
-   ```
-
-4. Instala dependencias PHP:
+2. Instala dependencias:
    ```bash
    composer install
    ```
 
-## Base de datos y migraciones
+3. Crea la base de datos MySQL llamada `laravel13`:
+   ```sql
+   CREATE DATABASE laravel13;
+   ```
 
-Ejecuta migraciones y carga los datos iniciales:
-```bash
-php artisan migrate --seed
-```
+4. El archivo `.env` ya está incluido en el repositorio. Verifica que tenga:
+   ```env
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=laravel13
+   DB_USERNAME=tu_usuario
+   DB_PASSWORD=tu_contraseña
+   ```
 
-### Tablas principales
+5. Ejecuta migraciones y seeders para crear tablas y datos iniciales:
+   ```bash
+   php artisan migrate --seed
+   ```
 
-#### `clientes`
+6. Inicia el servidor:
+   ```bash
+   php artisan serve
+   ```
 
-- `id` bigint PK auto-increment
-- `nombre` string
-- `email` string único
-- `telefono` string nullable
-- `empresa` string nullable
-- `direccion` text nullable
-- `created_at`, `updated_at`
-- `deleted_at` soft delete
-- índices: `nombre`, `email`
+## Uso
 
-#### `tickets`
-
-- `id` bigint PK auto-increment
-- `titulo` string (120)
-- `descripcion` text
-- `prioridad` enum (`baja`, `media`, `alta`)
-- `estado` string default `abierto`
-- `cliente_id` unsignedBigInteger FK -> `clientes.id`
-- `user_id` unsignedBigInteger nullable
-- `created_at`, `updated_at`
-- `deleted_at` soft delete
-- índices: `prioridad`, `created_at`, `titulo`, `cliente_id`
-
-### Datos iniciales
-
-El proyecto incluye seeders que generan:
-
-- varios clientes de prueba
-- varios tickets de prueba con prioridades y estados diversos
-
-Esto permite probar el frontend y los filtros sin necesidad de crear datos manualmente.
-
-## API
-
-### `GET /api/clientes`
-
-Obtiene la lista de clientes.
-
-### `GET /api/tickets`
-
-Lista tickets con filtros opcionales:
-
-- `prioridad` = `baja` | `media` | `alta`
-- `fecha_inicio` = `YYYY-MM-DD`
-- `fecha_fin` = `YYYY-MM-DD`
-- `titulo` = búsqueda parcial en título
-- `per_page` = número de resultados por página
-
-### `POST /api/tickets`
-
-Crea un ticket.
-
-#### Campos requeridos
-
-- `titulo` (máximo 120)
-- `descripcion`
-- `prioridad` (`baja`, `media`, `alta`)
-- `cliente_id` (debe existir)
-
-#### Ejemplo de petición
-
-```bash
-curl -X POST http://127.0.0.1:8000/api/tickets \
-  -H "Content-Type: application/json" \
-  -d '{
-    "titulo": "Error en login",
-    "descripcion": "No permite iniciar sesión",
-    "prioridad": "alta",
-    "cliente_id": 1
-  }'
-```
-
-## Frontend
-
-- Ruta: `/tickets`
-- Usa Vue 3 para:
-  - crear tickets
-  - listar tickets
-  - aplicar filtros por prioridad, fecha y texto de título
-- Ubicación del archivo: `resources/views/tickets.blade.php`
+- Frontend: `http://127.0.0.1:8000/tickets`
+- API:
+  - `GET /api/tickets` (con filtros: prioridad, fecha_inicio, fecha_fin, titulo)
+  - `POST /api/tickets` (campos: titulo, descripcion, prioridad, cliente_id)
+  - `GET /api/clientes`
 
 ## Pruebas
 
-Ejecuta las pruebas con:
+Ejecuta pruebas:
 ```bash
 php artisan test
 ```
 
+<<<<<<< HEAD
 Pruebas incluidas:
 - validación de payload al crear ticket
 - creación exitosa de ticket
@@ -183,3 +95,9 @@ Pruebas incluidas:
 
 El proyecto está diseñado para un entorno de desarrollo local. Si se desea desplegar a producción, se debe configurar un servidor web que sirva la carpeta `public` y proteger las rutas apropiadamente.
 >>>>>>> ebdd89e (primer commit del proyecto, donde se crean las especificaciones del proyecto Vue+Laravel)
+=======
+## Notas
+- No requiere autenticación.
+- Datos iniciales incluidos via seeders.
+- Para producción, configura servidor web y seguridad.
+>>>>>>> 79b6242 (se añadieron cambios generales)
