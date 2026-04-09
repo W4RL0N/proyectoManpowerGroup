@@ -1,8 +1,7 @@
-<<<<<<< HEAD
 # proyectoManpowerGroup
 Proyecto Prueba Tecnica ManpowerGroup Desarrollador Laravel
-=======
-# Sistema de Tickets
+
+## Sistema de Tickets
 
 Proyecto Laravel para administrar tickets de soporte con API REST y frontend Vue.
 
@@ -61,7 +60,6 @@ Ejecuta pruebas:
 php artisan test
 ```
 
-<<<<<<< HEAD
 Pruebas incluidas:
 - validación de payload al crear ticket
 - creación exitosa de ticket
@@ -91,13 +89,7 @@ Pruebas incluidas:
    http://127.0.0.1:8000/tickets
    ```
 
-## NOTA
-
-El proyecto está diseñado para un entorno de desarrollo local. Si se desea desplegar a producción, se debe configurar un servidor web que sirva la carpeta `public` y proteger las rutas apropiadamente.
->>>>>>> ebdd89e (primer commit del proyecto, donde se crean las especificaciones del proyecto Vue+Laravel)
-=======
 ## Notas
 - No requiere autenticación.
 - Datos iniciales incluidos via seeders.
 - Para producción, configura servidor web y seguridad.
->>>>>>> 79b6242 (se añadieron cambios generales)
