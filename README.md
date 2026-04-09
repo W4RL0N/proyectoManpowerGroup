@@ -42,7 +42,7 @@ Rama: main
    php artisan migrate --seed
    ```
 
-6. Inicia el servidor:
+6. Levanta el servidor:
    ```
    php artisan serve
    ```
@@ -71,25 +71,3 @@ Pruebas incluidas:
 - API simple con respuestas JSON consistentes.
 - Frontend integrado en Blade para facilitar despliegue sin build adicional.
 - Migraciones y seeders proporcionan la estructura de BD y datos iniciales.
-
-## Cómo ejecutar en localhost
-
-1. Asegúrate de que MySQL esté corriendo.
-2. Ajusta `.env` con la base de datos.
-3. Corre migraciones y seeders:
-   ```bash
-   php artisan migrate --seed
-   ```
-4. Inicia el servidor:
-   ```bash
-   php artisan serve
-   ```
-5. Accede a:
-   ```
-   http://127.0.0.1:8000/tickets
-   ```
-
-## Notas
-- No requiere autenticación.
-- Datos iniciales incluidos via seeders.
-
