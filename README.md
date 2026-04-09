@@ -1,5 +1,3 @@
-# proyectoManpowerGroup
-Proyecto Prueba Tecnica ManpowerGroup Desarrollador Laravel
 
 ## Sistema de Tickets
 
@@ -14,16 +12,20 @@ Proyecto Laravel para administrar tickets de soporte con API REST y frontend Vue
 ## Instalación
 
 1. Clona el repositorio y entra al directorio.
+https://github.com/W4RL0N/proyectoManpowerGroup.git
+
+Rama: main
 
 2. Instala dependencias:
-   ```bash
-   composer install
-   ```
+   
+   ``` composer install ```
+  
 
 3. Crea la base de datos MySQL llamada `laravel13`:
-   ```sql
-   CREATE DATABASE laravel13;
-   ```
+   
+   
+    ``` CREATE DATABASE laravel13; ```
+  
 
 4. El archivo `.env` ya está incluido en el repositorio. Verifica que tenga:
    ```env
@@ -31,21 +33,23 @@ Proyecto Laravel para administrar tickets de soporte con API REST y frontend Vue
    DB_HOST=127.0.0.1
    DB_PORT=3306
    DB_DATABASE=laravel13
-   DB_USERNAME=tu_usuario
-   DB_PASSWORD=tu_contraseña
+   DB_USERNAME=root
+   DB_PASSWORD=
    ```
 
 5. Ejecuta migraciones y seeders para crear tablas y datos iniciales:
-   ```bash
+   ```
    php artisan migrate --seed
    ```
 
 6. Inicia el servidor:
-   ```bash
+   ```
    php artisan serve
    ```
 
 ## Uso
+
+Usar el link de la vista ya que esta configurado el puerto 8000:
 
 - Frontend: `http://127.0.0.1:8000/tickets`
 - API:
@@ -53,12 +57,8 @@ Proyecto Laravel para administrar tickets de soporte con API REST y frontend Vue
   - `POST /api/tickets` (campos: titulo, descripcion, prioridad, cliente_id)
   - `GET /api/clientes`
 
-## Pruebas
 
-Ejecuta pruebas:
-```bash
-php artisan test
-```
+
 
 Pruebas incluidas:
 - validación de payload al crear ticket
@@ -92,4 +92,4 @@ Pruebas incluidas:
 ## Notas
 - No requiere autenticación.
 - Datos iniciales incluidos via seeders.
-- Para producción, configura servidor web y seguridad.
+
